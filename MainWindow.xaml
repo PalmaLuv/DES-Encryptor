@@ -1,0 +1,266 @@
+﻿<Window x:Class="WPFForm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFForm"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="355" Width="805"
+        WindowStyle="None" AllowsTransparency="True"
+        ResizeMode="NoResize"
+        Background="Transparent">
+    <Window.Effect>
+        <DropShadowEffect ShadowDepth="3"
+                          Opacity="0.3"
+                          BlurRadius="10"/>
+    </Window.Effect>
+
+    <Grid Height="350" Width="800"
+          HorizontalAlignment="Left"
+          VerticalAlignment="Top">
+
+        <Border CornerRadius="10">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                    <GradientStop Color="#593FA7" Offset="0.0"/>
+                    <GradientStop Color="#9449CD" Offset="0.25"/>
+                    <GradientStop Color="#AE49CD" Offset="0.50"/>
+                    <GradientStop Color="#AF34BA" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Border MouseDown="MouseHeader"
+                        Background="#353535">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="6"
+                                          Direction="270"
+                                          Opacity="0.5"
+                                          BlurRadius="15"/>
+                    </Border.Effect>
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Data Encryption Standard"
+                               Foreground="Gray"
+                               FontWeight="SemiBold"
+                               VerticalAlignment="Center"
+                               FontSize="11" Height="25"/>
+
+                        <StackPanel HorizontalAlignment="Right" 
+                                    Orientation="Horizontal"
+                                    Grid.Column="2" Width="50">
+                            <Button Click="MainWindowsMinimals"
+                                    FontSize="14"
+                                    FontWeight="Medium"
+                                    Margin="0,0,10,0"
+                                    Cursor="Hand">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="#5efc82"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#00c853"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Width="15" Height="15"
+                                    CornerRadius="8"
+                                    Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+
+                            <Button Click="MainWindowExit"
+                                    FontSize="14"
+                                    FontWeight="Medium"
+                                    Margin="0,0,10,0"
+                                    Cursor="Hand">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="#FE6584"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF4C70"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Width="15" Height="15"
+                                    CornerRadius="8"
+                                    Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <StackPanel HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                            <Label Content="Encryption"
+                                   Foreground="LightGray"
+                                   FontWeight="SemiBold"
+                                   FontSize="24"/>
+
+                            <Label Content="Key"
+                                   FontWeight="SemiBold"
+                                   Foreground="White"/>
+                            <TextBox x:Name="EncKey">
+                                <TextBox.Style>
+                                    <Style TargetType="TextBox">
+                                        <Setter Property="Background" Value="Gray"/>
+                                        <Setter Property="Width" Value="350"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                            <Label Content="Text"
+                                   FontWeight="SemiBold"
+                                   Foreground="White"/>
+                            <TextBox x:Name="EncText">
+                                <TextBox.Style>
+                                    <Style TargetType="TextBox">
+                                        <Setter Property="Background" Value="Gray"/>
+                                        <Setter Property="Width" Value="350"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                            <Button Height="25"
+                                    Width="80"
+                                    HorizontalAlignment="Right"
+                                    Margin="0,10,0,0"
+                                    Content="encryption"
+                                    Foreground="White"
+                                    Click="ButtonEnc">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="#545454"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#6B6B6B"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border 
+                                                CornerRadius="8" Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <Button.Effect>
+                                    <DropShadowEffect BlurRadius="15"
+                                                      ShadowDepth="4"
+                                                      Direction="270"
+                                                      Opacity="0.3"/>
+                                </Button.Effect>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <StackPanel HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                            <Label Content="Decryption"
+                                   Foreground="LightGray"
+                                   FontWeight="SemiBold"
+                                   FontSize="24"/>
+
+                            <Label Content="Key"
+                                   FontWeight="SemiBold"
+                                   Foreground="White"/>
+                            <TextBox x:Name="DecKey">
+                                <TextBox.Style>
+                                    <Style TargetType="TextBox">
+                                        <Setter Property="Background" Value="Gray"/>
+                                        <Setter Property="Width" Value="350"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                            <Label Content="Text"
+                                   FontWeight="SemiBold"
+                                   Foreground="White"/>
+                            <TextBox x:Name="DecText">
+                                <TextBox.Style>
+                                    <Style TargetType="TextBox">
+                                        <Setter Property="Background" Value="Gray"/>
+                                        <Setter Property="Width" Value="350"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                            <Button Height="25"
+                                    Width="80"
+                                    HorizontalAlignment="Right"
+                                    Margin="0,10,0,0"
+                                    Content="decryption"
+                                    Foreground="White"
+                                    Click="ButtonDec">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="#545454"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#6B6B6B"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border 
+                                                CornerRadius="8" Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <Button.Effect>
+                                    <DropShadowEffect BlurRadius="15"
+                                                      ShadowDepth="4"
+                                                      Direction="270"
+                                                      Opacity="0.3"/>
+                                </Button.Effect>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
