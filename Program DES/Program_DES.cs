@@ -31,6 +31,7 @@ namespace WPFForm
             file.Start();
         }
 
+        //Metod encription
         public void MetodEnc(string s)
         {
             string key = Key;
@@ -61,6 +62,7 @@ namespace WPFForm
             OpenFile();
         }
 
+        //Metod decription
         public void MetodDec(string s)
         {
             string key = Key;

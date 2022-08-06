@@ -23,14 +23,28 @@ namespace WPFForm
         Program_DES des;
         private void ButtonEnc(object sender , RoutedEventArgs e)
         {
-            des = new Program_DES(EncKey.Text);
-            des.MetodEnc(EncText.Text);
+            try
+            {
+                des = new Program_DES(EncKey.Text);
+                des.MetodEnc(EncText.Text);
+            }
+            catch (System.DivideByZeroException)
+            {
+                MessageBox.Show("Fields must not be empty, otherwise it will lead to an error");
+            }
         }
 
         private void ButtonDec(object sender , RoutedEventArgs e)
         {
-            des = new Program_DES(DecKey.Text);
-            des.MetodDec(DecText.Text);
+            try
+            {
+                des = new Program_DES(DecKey.Text);
+                des.MetodDec(DecText.Text);
+            }
+            catch (System.DivideByZeroException)
+            {
+                MessageBox.Show("Fields must not be empty, otherwise it will lead to an error");
+            }
         }
         
     }
