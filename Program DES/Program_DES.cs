@@ -40,7 +40,7 @@ namespace WPFForm
             text = CorrectRightLength(text);
             CutStringIntoBlocks(text);
 
-            key = CorrectKey(key, text.Length / (2 * Blocks.Length));
+            key = CorrectKey(key, text.Length / Blocks.Length);
             key = StringToBinaryFormat(key);
 
             for (int i = 0; i < QuantityOfRound; i++)
@@ -88,9 +88,19 @@ namespace WPFForm
             {
                 sw.WriteLine("Metod Decryption");
                 sw.WriteLine("\nKey : " + BinaryFormatToNormalFormat(key));
-                sw.WriteLine("\nText : " + BinaryFormatToNormalFormat(result));
+                sw.WriteLine("\nText : " + result_processing(BinaryFormatToNormalFormat(result)));
             }
             OpenFile();
+        }
+
+        private string result_processing(string inp)
+        {
+            char[] text = inp.ToCharArray();
+            string result = null;
+            for (int i = 0; i < text.Length; i++)
+                if (text[i] != '#')
+                    result += text[i].ToString();
+            return result;
         }
 
         //Convert string normal format to binary format.
